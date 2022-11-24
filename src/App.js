@@ -19,13 +19,13 @@ function App() {
         
         <p>----------------------</p>
 
-        <h1>{baslik}</h1>
+        {/* <h1>{baslik}</h1>
         <h1>{"Başlık yerine kullandım"}</h1>
         <p>Okunma Sayısı {okunmaSayisi}</p>
         <p>Durum {durum}</p>
         <p>Blog Ad {blog.ad}</p>
         <p>Blog Açıklama {blog.aciklama}</p>
-        <a href={link}>Google</a>
+        <a href={link}>Google</a> */}
       </div>
 
     </div>

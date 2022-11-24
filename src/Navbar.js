@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <h1>AOS Blog</h1>
-            <div className="links">
+            <div className="link">
                 <a href="/">Ana Sayfa</a>
                 <a href="/create" style={{
                     color:'white',
