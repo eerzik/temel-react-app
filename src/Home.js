@@ -4,6 +4,7 @@ import BlogList from "./BlogList";
 
 const Home = () => {
     const [blogs, setBlogs] = useState(null)
+    const[yukleniyor,setYukleniyor]=useState(true);
 
     useEffect(() => {
         fetch('http://localhost:8000/yazilar')
@@ -12,7 +13,8 @@ const Home = () => {
             })
             .then(data => {
                 // console.log(data);
-                setBlogs(data)
+                setBlogs(data);
+                setYukleniyor(false);
             })
     }, [])
 
@@ -23,6 +25,7 @@ const Home = () => {
 
     return (
         <div className="home">
+            {yukleniyor && <div className="loading" >Yükleniyor</div>}
             {blogs && <BlogList bloglar={blogs} baslik="Bütün Yazılar" handleClick={handleClick} />}
         </div>
 
