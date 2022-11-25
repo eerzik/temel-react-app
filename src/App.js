@@ -17,8 +17,7 @@ function App() {
       <div className="content">
         <AnaSayfa></AnaSayfa>
         
-        <p>----------------------</p>
-
+   
         {/* <h1>{baslik}</h1>
         <h1>{"Başlık yerine kullandım"}</h1>
         <p>Okunma Sayısı {okunmaSayisi}</p>
