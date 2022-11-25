@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
@@ -33,6 +33,15 @@ const Home = () => {
         }
     ])
 
+    const [isim, setIsim] = useState('luffy');
+
+    // [] eklemezsek usestate lerde de çalışır eklersek sadece sayfa yüklenirken bir kez çalışır.
+    //[blogs] olarak yazarsak bloglar ile ilgili değişim olursa çalışır.
+    useEffect(() => {
+        console.log("useEffect çalıştı");
+
+    }, [blogs, isim])
+
     const handleClick = (id) => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
         setBlogs(newBlogs);
@@ -41,7 +50,7 @@ const Home = () => {
     return (
         <div className="home">
             <BlogList bloglar={blogs} baslik="Bütün Yazılar" handleClick={handleClick} />
-
+            <button onClick={()=>setIsim('zoro')}>Değiştir</button>
         </div>
 
     );
