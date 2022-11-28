@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import AnaSayfa from "./Home";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Create from "./Create";
 function App() {
 
   return (
@@ -9,9 +10,8 @@ function App() {
         <Navbar></Navbar>
         <div className="content">
           <Routes>
-            <Route path="/" element={<AnaSayfa/>}>
-              
-            </Route>
+            <Route path="/" element={<AnaSayfa />}></Route>
+            <Route path="/create" element={<Create />}></Route>
           </Routes>
 
         </div>
