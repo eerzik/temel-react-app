@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlogList = ({bloglar,baslik,handleClick}) => {
+const BlogList = ({bloglar,baslik}) => {
 
 
     return (
@@ -10,7 +10,7 @@ const BlogList = ({bloglar,baslik,handleClick}) => {
                 <div className="blog-preview" key={blog.id}>
                     <h2>{blog.ad}</h2>
                     <p>Yazının yazarı : {blog.yazar}</p>
-                    <button onClick={()=>handleClick(blog.id)} >Sil</button>
+           
                 </div>
             ))
             }
