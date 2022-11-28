@@ -7,12 +7,17 @@ const Create = () => {
     const [aciklama, setAciklama] = useState('');
     const [yazar, setYazar] = useState('Luffy');
 
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        const yazi={baslik,aciklama,yazar};
+        console.log(yazi);
+    }
 
 
     return (
         <div className="create">
             <h2 style={{ color: '#ff793f' }}>Yeni Yazı Ekle</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Yazı Başlık :
                     <input type="text" required value={baslik} onChange={(e) => setBaslik(e.target.value)}></input>
                 </label>
@@ -27,9 +32,7 @@ const Create = () => {
                 </select>
 
                 <button>Ekle</button>
-                {/* {baslik}
-                {yazar}
-                {aciklama} */}
+        
             </form>
         </div>
     );
