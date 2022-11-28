@@ -15,7 +15,6 @@ const useFetch = (url) => {
             })
             .then(data => {
                 // console.log(data);
-
                 setVeri(data);
                 setYukleniyor(false);
             }).catch(err => {
