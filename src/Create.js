@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate   } from 'react-router-dom';
 
 const Create = () => {
 
@@ -7,21 +8,24 @@ const Create = () => {
     const [aciklama, setAciklama] = useState('');
     const [yazar, setYazar] = useState('Luffy');
     const [yukleniyor, setYukleniyor] = useState(false);
+    const navigate = useNavigate  ();
 
     const handleSubmit = (e) => {
 
         e.preventDefault();
         setYukleniyor(true);
         const yazi = { ad: baslik, aciklama, yazar };
-        console.log(yazi);
+       // console.log(yazi);
         fetch("http://localhost:8000/yazilar/",
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(yazi)
             }).then(() => {
-                                console.log('Yazı Eklendi' + yazi.ad);
-                 setYukleniyor(false);
+                console.log('Yazı Eklendi' + yazi.ad);
+                setYukleniyor(false);
+                //navigate(-1);
+                navigate("/");
             })
     }
 
