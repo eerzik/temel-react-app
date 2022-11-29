@@ -6,11 +6,23 @@ const Create = () => {
     const [baslik, setBaslik] = useState('');
     const [aciklama, setAciklama] = useState('');
     const [yazar, setYazar] = useState('Luffy');
+    const [yukleniyor, setYukleniyor] = useState(false);
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
+
         e.preventDefault();
-        const yazi={baslik,aciklama,yazar};
+        setYukleniyor(true);
+        const yazi = { ad: baslik, aciklama, yazar };
         console.log(yazi);
+        fetch("http://localhost:8000/yazilar/",
+            {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(yazi)
+            }).then(() => {
+                                console.log('Yazı Eklendi' + yazi.ad);
+                 setYukleniyor(false);
+            })
     }
 
 
@@ -31,8 +43,8 @@ const Create = () => {
                     <option value="Sanji">Sanji</option>
                 </select>
 
-                <button>Ekle</button>
-        
+                {!yukleniyor && <button>Ekle</button>}
+                {yukleniyor && <button disabled>Yükleniyor</button>}
             </form>
         </div>
     );
